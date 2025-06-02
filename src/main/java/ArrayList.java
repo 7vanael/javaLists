@@ -1,11 +1,10 @@
 public class ArrayList implements List {
 
-    private int size;
+    private int size =0;
     private int[] storedData;
-    private final int DEFAULT_INITIAL_CAPACITY = 10;
-    private final int GROWTH_RATE = 1;
 
     public ArrayList() {
+        int DEFAULT_INITIAL_CAPACITY = 10;
         storedData = new int[DEFAULT_INITIAL_CAPACITY];
     }
 
@@ -25,29 +24,28 @@ public class ArrayList implements List {
     }
 
     @Override
-    public void add(int index, int element) {
+    public void add(int element, int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
-        };
+        }
         if (size == storedData.length) {
             increaseSize();
         }
-        if (index < size){
+        if (index < size) {
             makeSpace(index);
         }
         storedData[index] = element;
         size++;
     }
 
-
     private void makeSpace(int targetIndex) {
         for (int i = size; i > targetIndex; i--) {
-            storedData[i] = storedData [i - 1];
+            storedData[i] = storedData[i - 1];
         }
     }
 
     private void increaseSize() {
-        int newSize = size + GROWTH_RATE;
+        int newSize = size * 2;
         int[] longerArray = new int[newSize];
         for (int i = 0; i < size; i++) {
             longerArray[i] = storedData[i];
@@ -64,11 +62,11 @@ public class ArrayList implements List {
     public void remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
-        };
-        for (int i = index; i < size ; i++) {
-            storedData[i] = storedData [i + 1];
         }
-        size --;
+        for (int i = index; i < size; i++) {
+            storedData[i] = storedData[i + 1];
+        }
+        size--;
     }
 
     @Override
@@ -78,5 +76,4 @@ public class ArrayList implements List {
         }
         return storedData[index];
     }
-
 }

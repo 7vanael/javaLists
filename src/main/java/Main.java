@@ -1,65 +1,110 @@
 
 public class Main {
-
     public static void main(String[] args) {
 
         System.out.println("ArrayList Performance Testing");
         System.out.println("=============================\n");
 
-        testAddToFront();
+        testAddToFrontArrayList();
+        testAddToEndArrayList();
+        testAddToMiddleArrayList();
 
-        testAddToEnd();
+        System.out.println("LinkedList Performance Testing");
+        System.out.println("=============================\n");
 
-        testAddToMiddle();
+        testAddToFrontLinkedList();
+        testAddToEndLinkedList();
+        testAddToMiddleLinkedList();
     }
 
-    public static void testAddToFront() {
-        ArrayList list = new ArrayList();
-
+    public static void testAddToFrontArrayList() {
+        ArrayList array = new ArrayList();
         long startTime = System.nanoTime();
 
         for (int i = 0; i < 1000; i++) {
-            list.add(0, i);
+            array.add(i, 0);
         }
-
         long endTime = System.nanoTime();
         long duration = endTime - startTime;
 
         System.out.println("Adding to Front:");
         System.out.println("Time: " + (duration / 1_000_000.0) + " milliseconds");
-        System.out.println("Final size: " + list.size() + "\n");
+        System.out.println("Final size: " + array.size() + "\n");
     }
 
-    public static void testAddToEnd() {
-        ArrayList list = new ArrayList();
-
+    public static void testAddToEndArrayList() {
+        ArrayList array = new ArrayList();
         long startTime = System.nanoTime();
 
         for (int i = 0; i < 1000; i++) {
-            list.add(i);
+            array.add(i);
         }
-
         long endTime = System.nanoTime();
         long duration = endTime - startTime;
 
         System.out.println("Adding to End:");
         System.out.println("Time: " + (duration / 1_000_000.0) + " milliseconds");
-        System.out.println("Final size: " + list.size() + "\n");
+        System.out.println("Final size: " + array.size() + "\n");
     }
 
-    public static void testAddToMiddle() {
-        ArrayList list = new ArrayList();
+    public static void testAddToMiddleArrayList() {
+        ArrayList array = new ArrayList();
         long startTime = System.nanoTime();
 
         for (int i = 0; i < 1000; i++) {
-            int middleIndex = list.size() / 2;
-            list.add(middleIndex, i);
+            int middleIndex = array.size() / 2;
+            array.add(i, middleIndex);
         }
         long endTime = System.nanoTime();
         long duration = endTime - startTime;
 
         System.out.println("Adding to Middle:");
         System.out.println("Time: " + (duration / 1_000_000.0) + " milliseconds");
-        System.out.println("Final size: " + list.size() + "\n");
+        System.out.println("Final size: " + array.size() + "\n");
+    }
+    public static void testAddToFrontLinkedList() {
+        LinkedList linked = new LinkedList();
+        long startTime = System.nanoTime();
+
+        for (int i = 0; i < 1000; i++) {
+            linked.add(i, 0);
+        }
+        long endTime = System.nanoTime();
+        long duration = endTime - startTime;
+
+        System.out.println("Adding to Front:");
+        System.out.println("Time: " + (duration / 1_000_000.0) + " milliseconds");
+        System.out.println("Final size: " + linked.size() + "\n");
+    }
+
+    public static void testAddToEndLinkedList() {
+        LinkedList linked = new LinkedList();
+        long startTime = System.nanoTime();
+
+        for (int i = 0; i < 1000; i++) {
+            linked.add(i);
+        }
+        long endTime = System.nanoTime();
+        long duration = endTime - startTime;
+
+        System.out.println("Adding to End:");
+        System.out.println("Time: " + (duration / 1_000_000.0) + " milliseconds");
+        System.out.println("Final size: " + linked.size() + "\n");
+    }
+
+    public static void testAddToMiddleLinkedList() {
+        LinkedList linked = new LinkedList();
+        long startTime = System.nanoTime();
+
+        for (int i = 0; i < 1000; i++) {
+            int middleIndex = linked.size() / 2;
+            linked.add(i, middleIndex);
+        }
+        long endTime = System.nanoTime();
+        long duration = endTime - startTime;
+
+        System.out.println("Adding to Middle:");
+        System.out.println("Time: " + (duration / 1_000_000.0) + " milliseconds");
+        System.out.println("Final size: " + linked.size() + "\n");
     }
 }
