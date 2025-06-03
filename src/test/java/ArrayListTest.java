@@ -114,6 +114,23 @@ public class ArrayListTest {
         assertEquals(5, newList.get(1));
     }
 
+    @Test
+    @DisplayName("Set replaces value with new one at the index")
+    public void setsIndexToSpecifiedValue(){
+        addThree();
+        newList.set(1, 10);
+        assertEquals(10, newList.get(1));
+    }
+
+    @Test
+    @DisplayName("Swap exchanges the values stored at two indexes")
+    public void swapExchangesValuesBetweenTwoIndexes(){
+        addThree();
+        newList.swap(0, 2);
+        assertEquals(5, newList.get(0));
+        assertEquals(1, newList.get(2));
+    }
+
     private void addThree() {
         newList.add(1);
         newList.add(3);

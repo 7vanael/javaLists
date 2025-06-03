@@ -1,4 +1,4 @@
-public class LinkedList implements List {
+public class LinkedList implements List, SortableList {
 
     private int size = 0;
     private Node first;
@@ -77,6 +77,20 @@ public class LinkedList implements List {
         }
         Node targetNode = getNode(index);
         return targetNode.value;
+    }
+
+    @Override
+    public void set(int index, int value) {
+        getNode(index).value = value;
+    }
+
+    @Override
+    public void swap(int i, int j) {
+        Node nodeI = getNode(i);
+        Node nodeJ = getNode(j);
+        int temp = nodeI.value;
+        nodeI.value = nodeJ.value;
+        nodeJ.value = temp;
     }
 
     private void checkBounds(int index) {

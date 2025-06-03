@@ -1,6 +1,6 @@
-public class ArrayList implements List {
+public class ArrayList implements List, SortableList {
 
-    private int size =0;
+    private int size = 0;
     private int[] storedData;
 
     public ArrayList() {
@@ -36,6 +36,18 @@ public class ArrayList implements List {
         }
         storedData[index] = element;
         size++;
+    }
+
+    @Override
+    public void set(int index, int value) {
+        storedData[index] = value;
+    }
+
+    @Override
+    public void swap(int i, int j) {
+        int temp = storedData[i];
+        storedData[i] = storedData[j];
+        storedData[j] = temp;
     }
 
     private void makeSpace(int targetIndex) {
