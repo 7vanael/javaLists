@@ -1,3 +1,6 @@
+package DataStructures;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,21 +18,21 @@ public class LinkedListTest {
     @Test
     @DisplayName("New list is size Zero")
     public void newListHasSizeZero() {
-        assertEquals(0, newList.size());
+        Assertions.assertEquals(0, newList.size());
     }
 
     @Test
     @DisplayName("Value added is retrievable with get")
     public void addOneToEmptyListGetsListWithOne() {
         newList.add(1);
-        assertEquals(1, newList.get(0));
+        Assertions.assertEquals(1, newList.get(0));
     }
 
     @Test
-    @DisplayName("List size increases when adding more values")
+    @DisplayName("DataStructures.List size increases when adding more values")
     public void sizeUpdatesWhenListGrows() {
         newList.add(1);
-        assertEquals(1, newList.size());
+        Assertions.assertEquals(1, newList.size());
     }
 
     @Test
@@ -43,9 +46,9 @@ public class LinkedListTest {
     @DisplayName("Add appends by default")
     public void addingWithoutIndexArgumentAppends() {
         addThree();
-        assertEquals(1, newList.get(0));
-        assertEquals(3, newList.get(1));
-        assertEquals(5, newList.get(2));
+        Assertions.assertEquals(1, newList.get(0));
+        Assertions.assertEquals(3, newList.get(1));
+        Assertions.assertEquals(5, newList.get(2));
     }
 
     @Test
@@ -65,9 +68,9 @@ public class LinkedListTest {
     public void addingWithIndexInsertsAtIndex() {
         addThree();
         newList.add(2, 1);
-        assertEquals(2, newList.get(1));
-        assertEquals(3, newList.get(2));
-        assertEquals(5, newList.get(3));
+        Assertions.assertEquals(2, newList.get(1));
+        Assertions.assertEquals(3, newList.get(2));
+        Assertions.assertEquals(5, newList.get(3));
     }
 
     @Test
@@ -81,7 +84,7 @@ public class LinkedListTest {
     public void removeReducesSizeFromThreeToTwo() {
         addThree();
         newList.remove(1);
-        assertEquals(2, newList.size());
+        Assertions.assertEquals(2, newList.size());
     }
 
     @Test
@@ -89,7 +92,7 @@ public class LinkedListTest {
     public void removeShiftsDataStored() {
         addThree();
         newList.remove(1);
-        assertEquals(5, newList.get(1));
+        Assertions.assertEquals(5, newList.get(1));
     }
 
     @Test
@@ -97,43 +100,58 @@ public class LinkedListTest {
     public void removeThirdMakesSecondLast() {
         addThree();
         newList.remove(2);
-        assertEquals(2, newList.size());
-        assertEquals(1, newList.get(0));
-        assertEquals(3, newList.get(1));
+        Assertions.assertEquals(2, newList.size());
+        Assertions.assertEquals(1, newList.get(0));
+        Assertions.assertEquals(3, newList.get(1));
     }
+
     @Test
     @DisplayName("Removing first makes second item first")
     public void removeFirstMakesSecondFirst() {
         addThree();
         newList.remove(0);
-        assertEquals(2, newList.size());
-        assertEquals(3, newList.get(0));
-        assertEquals(5, newList.get(1));
+        Assertions.assertEquals(2, newList.size());
+        Assertions.assertEquals(3, newList.get(0));
+        Assertions.assertEquals(5, newList.get(1));
     }
 
     @Test
     @DisplayName("Removing only item results in 0 size list")
-    public void removingOnlyGetsSize0(){
+    public void removingOnlyGetsSize0() {
         newList.add(1);
         newList.remove(0);
-        assertEquals(0, newList.size());
+        Assertions.assertEquals(0, newList.size());
     }
 
     @Test
     @DisplayName("Set replaces value with new one at the index")
-    public void setsIndexToSpecifiedValue(){
+    public void setsIndexToSpecifiedValue() {
         addThree();
         newList.set(1, 10);
-        assertEquals(10, newList.get(1));
+        Assertions.assertEquals(10, newList.get(1));
     }
 
     @Test
     @DisplayName("Swap exchanges the values stored at two indexes")
-    public void swapExchangesValuesBetweenTwoIndexes(){
+    public void swapExchangesValuesBetweenTwoIndexes() {
         addThree();
         newList.swap(0, 2);
-        assertEquals(5, newList.get(0));
-        assertEquals(1, newList.get(2));
+        Assertions.assertEquals(5, newList.get(0));
+        Assertions.assertEquals(1, newList.get(2));
+    }
+
+    @Test
+    @DisplayName("First returns the value of the first entry")
+    public void firstReturnsFirstValue() {
+        newList.add(7);
+        assertEquals(7, newList.first());
+    }
+
+    @Test
+    @DisplayName("CreateNew returns an empty LinkedList")
+    public void createNewReturnsEmptyLinkedList() {
+        SortableList created = newList.createNew();
+        assertEquals(created.getClass(), newList.getClass());
     }
 
     private void addThree() {

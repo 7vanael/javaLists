@@ -1,3 +1,8 @@
+package Algorithms;
+
+import DataStructures.ArrayList;
+import DataStructures.LinkedList;
+import DataStructures.SortableList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,13 +23,15 @@ public class QuickSortTest {
     @Test
     public void acceptsLinkedListAndArrayList(){
         populateLists(new int[] {1, 3, 5});
-        assertDoesNotThrow(() -> QuickSort.quickSort(array));
-        assertDoesNotThrow(() -> QuickSort.quickSort(linked));
+        assertDoesNotThrow(() -> QuickSort.sort(array));
+        assertDoesNotThrow(() -> QuickSort.sort(linked));
     }
 
     @Test
     public void doesNotAlterListsWhereSizeLessThanTwo(){
         populateLists(new int[] {1});
+        QuickSort.sort(array);
+        QuickSort.sort(linked);
         assertArrayEquals(new int[]{1}, toArray(array));
         assertArrayEquals(new int[]{1}, toArray(linked));
     }
@@ -34,8 +41,8 @@ public class QuickSortTest {
         set = new int[]{1, 2, 3};
         populateLists(set);
 
-        QuickSort.quickSort(array);
-        QuickSort.quickSort(linked);
+        QuickSort.sort(array);
+        QuickSort.sort(linked);
 
         assertArrayEquals(new int[]{1, 2, 3}, toArray(array));
         assertArrayEquals(new int[]{1, 2, 3}, toArray(linked));
@@ -46,8 +53,8 @@ public class QuickSortTest {
         set = new int[]{2, 1};
         populateLists(set);
 
-        QuickSort.quickSort(array);
-        QuickSort.quickSort(linked);
+        QuickSort.sort(array);
+        QuickSort.sort(linked);
 
         assertArrayEquals(new int[]{1, 2}, toArray(array));
         assertArrayEquals(new int[]{1, 2}, toArray(linked));
@@ -58,8 +65,8 @@ public class QuickSortTest {
         set = new int[]{-1, -2};
         populateLists(set);
 
-        QuickSort.quickSort(array);
-        QuickSort.quickSort(linked);
+        QuickSort.sort(array);
+        QuickSort.sort(linked);
 
         assertArrayEquals(new int[]{-2, -1}, toArray(array));
         assertArrayEquals(new int[]{-2, -1}, toArray(linked));

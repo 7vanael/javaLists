@@ -1,4 +1,6 @@
-public class LinkedList implements List, SortableList {
+package DataStructures;
+
+public class LinkedList implements SortableList {
 
     private int size = 0;
     private Node first;
@@ -91,6 +93,16 @@ public class LinkedList implements List, SortableList {
         int temp = nodeI.value;
         nodeI.value = nodeJ.value;
         nodeJ.value = temp;
+    }
+
+    @Override
+    public int first() {
+        return first.value;
+    }
+
+    @Override
+    public SortableList createNew() {
+        return new LinkedList();
     }
 
     private void checkBounds(int index) {

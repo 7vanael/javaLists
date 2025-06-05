@@ -1,15 +1,19 @@
+package Algorithms;
+
+import DataStructures.SortableList;
+
 public class QuickSort {
-    public static void quickSort(SortableList list) {
+    public static void sort(SortableList list) {
         if (list.size() > 1) {
-            quickSort(list, 0, list.size() - 1);
+            sort(list, 0, list.size() - 1);
         }
     }
 
-    private static void quickSort(SortableList list, int low, int high) {
+    private static void sort(SortableList list, int low, int high) {
         if (low < high) {
             int pivotIndex = partition(list, low, high);
-            quickSort(list, low, pivotIndex - 1);
-            quickSort(list, pivotIndex + 1, high);
+            sort(list, low, pivotIndex - 1);
+            sort(list, pivotIndex + 1, high);
         }
     }
 

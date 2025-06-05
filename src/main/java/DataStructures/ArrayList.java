@@ -1,4 +1,6 @@
-public class ArrayList implements List, SortableList {
+package DataStructures;
+
+public class ArrayList implements SortableList {
 
     private int size = 0;
     private int[] storedData;
@@ -75,7 +77,7 @@ public class ArrayList implements List, SortableList {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
-        for (int i = index; i < size; i++) {
+        for (int i = index; i < size -1; i++) {
             storedData[i] = storedData[i + 1];
         }
         size--;
@@ -87,5 +89,15 @@ public class ArrayList implements List, SortableList {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
         return storedData[index];
+    }
+
+    @Override
+    public int first(){
+        return storedData[0];
+    }
+
+    @Override
+    public SortableList createNew(){
+        return new ArrayList();
     }
 }
