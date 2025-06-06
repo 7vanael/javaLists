@@ -103,8 +103,8 @@ public class ArrayList implements SortableList {
 
     @Override
     public boolean swapIfGreaterThanNext(int i) {
-        if (i >= size - 1) return false;
-        if (storedData[i] > storedData[i + 1]) {
+        if (i > size - 1 || i < 0) throw new IndexOutOfBoundsException();
+        if (i < size - 1 && storedData[i] > storedData[i + 1]) {
             swap(i, i + 1);
             return true;
         }

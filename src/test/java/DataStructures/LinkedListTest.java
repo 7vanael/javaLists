@@ -132,7 +132,7 @@ public class LinkedListTest {
     }
 
     @Test
-    @DisplayName("Swap exchanges the values stored at two indexes")
+    @DisplayName("Swap exchanges the values stored at two indexes & returns true")
     public void swapExchangesValuesBetweenTwoIndexes() {
         addThree();
         newList.swap(0, 2);
@@ -155,25 +155,36 @@ public class LinkedListTest {
     }
 
     @Test
-    @DisplayName("Returns false if Target Value is less than the next")
-    public void greaterThanNextReturnsTrueIfTargetValueIsGreaterThanTheNext(){
+    @DisplayName("Swap If greater throws if index is out of bounds")
+    public void swapThrowsIfIndexOutOfBounds(){
+        addThree();
+        assertThrows(IndexOutOfBoundsException.class, () -> newList.swapIfGreaterThanNext(16));
+    }
+
+    @Test
+    @DisplayName("does not swap if Target Value is less than the next & returns false")
+    public void noSwapIfTargetValueIsLessThanTheNext() {
         addThree();
         assertFalse(newList.swapIfGreaterThanNext(0));
+        assertEquals(1, newList.get(0));
     }
 
     @Test
-    @DisplayName("Returns false if Target index has no next")
-    public void greaterThanNextReturnsFalseIfLast(){
+    @DisplayName("No swap if Target index has no next & returns false")
+    public void noSwapIfLast() {
         addThree();
         assertFalse(newList.swapIfGreaterThanNext(2));
+        assertEquals(5, newList.get(2));
     }
 
     @Test
-    @DisplayName("Returns true if Target index value is greater than the next")
-    public void greaterThanNextReturnsTrueIfNextIsGreater(){
+    @DisplayName("Swaps values if target value is greater than the next & returns true")
+    public void greaterThanNextSwapsIfCurrentIsGreater() {
         newList.add(7);
         newList.add(3);
         assertTrue(newList.swapIfGreaterThanNext(0));
+        assertEquals(3, newList.get(0));
+        assertEquals(7, newList.get(1));
     }
 
 
