@@ -1,3 +1,4 @@
+import Algorithms.BubbleSort;
 import Algorithms.MergeSort;
 import Algorithms.QuickSort;
 import DataStructures.ArrayList;
@@ -40,6 +41,43 @@ public class PerformanceTester {
         System.out.println("MergeSort Performance Testing");
         System.out.println("=============================\n");
         mergeSortPerformance();
+
+        System.out.println("BubbleSort Performance Testing");
+        System.out.println("=============================\n");
+        bubbleSortPerformance();
+    }
+
+    private void bubbleSortPerformance() {
+        ArrayList array;
+        LinkedList linked;
+
+        populateTenThousandRandom(tenThousand, random);
+
+        array = new ArrayList();
+        linked = new LinkedList();
+
+        for (int i = 0; i < SIZE_OF_SORTED_DATA_SET; i++) {
+            array.add(tenThousand[i]);
+            linked.add(tenThousand[i]);
+        }
+
+        startTime = System.nanoTime();
+        BubbleSort.sort(linked);
+        endTime = System.nanoTime();
+        duration = endTime - startTime;
+
+        System.out.println("BubbleSorting DataStructures.LinkedList:");
+        System.out.println("Time: " + (duration / 1000000.0) + " milliseconds");
+        System.out.println("Final size: " + linked.size() + "\n");
+
+        startTime = System.nanoTime();
+        BubbleSort.sort(array);
+        endTime = System.nanoTime();
+        duration = endTime - startTime;
+
+        System.out.println("BubbleSorting DataStructures.ArrayList:");
+        System.out.println("Time: " + (duration / 1000000.0) + " milliseconds");
+        System.out.println("Final size: " + array.size() + "\n");
     }
 
     private void mergeSortPerformance() {

@@ -148,6 +148,30 @@ public class ArrayListTest {
         assertEquals(created.getClass(), newList.getClass());
     }
 
+    @Test
+    @DisplayName("Returns false if Target Value is less than the next")
+    public void greaterThanNextReturnsTrueIfTargetValueIsGreaterThanTheNext(){
+        addThree();
+        assertFalse(newList.swapIfGreaterThanNext(0));
+        assertEquals(1, newList.get(0));
+    }
+
+    @Test
+    @DisplayName("Returns false if Target index has no next")
+    public void greaterThanNextReturnsFalseIfLast(){
+        addThree();
+        assertFalse(newList.swapIfGreaterThanNext(2));
+    }
+
+    @Test
+    @DisplayName("Returns true & swaps values if Target index value is greater than the next")
+    public void greaterThanNextReturnsTrueIfNextIsGreater(){
+        newList.add(7);
+        newList.add(3);
+        assertTrue(newList.swapIfGreaterThanNext(0));
+        assertEquals(3, newList.get(0));
+    }
+
     private void addThree() {
         newList.add(1);
         newList.add(3);

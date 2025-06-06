@@ -124,13 +124,11 @@ public class MergeSortTest {
         linkedA.add(3);
         linkedA.add(7);
 
-        MergeSort.mergeNext(array, 0, arrayA);
-        MergeSort.mergeNext(linked, 0, linkedA);
+        MergeSort.mergeNext(array, 0, arrayA, 0);
+        MergeSort.mergeNext(linked, 0, linkedA, 0);
 
         assertEquals(3, array.get(0));
         assertEquals(3, linked.get(0));
-        assertEquals(1, linkedA.size());
-        assertEquals(1, arrayA.size());
     }
 
     @Test

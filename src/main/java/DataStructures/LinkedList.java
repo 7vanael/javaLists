@@ -105,6 +105,23 @@ public class LinkedList implements SortableList {
         return new LinkedList();
     }
 
+    @Override
+    public boolean swapIfGreaterThanNext(int i) {
+        if (i >= size - 1) return false;
+        Node node = getNode(i);  // Only one traversal!
+        Node next = node.next;
+
+        if (node.value > next.value) {
+            // Swap in place
+            int temp = node.value;
+            node.value = next.value;
+            next.value = temp;
+            return true;  // Indicates a swap occurred
+        }
+        return false;
+    }
+
+
     private void checkBounds(int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);

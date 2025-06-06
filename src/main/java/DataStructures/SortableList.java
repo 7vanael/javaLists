@@ -5,4 +5,5 @@ public interface SortableList extends List {
     void swap(int i, int j);
     int first();
     SortableList createNew();
+    boolean swapIfGreaterThanNext(int i);
 }

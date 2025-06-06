@@ -77,7 +77,7 @@ public class ArrayList implements SortableList {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
-        for (int i = index; i < size -1; i++) {
+        for (int i = index; i < size - 1; i++) {
             storedData[i] = storedData[i + 1];
         }
         size--;
@@ -92,12 +92,22 @@ public class ArrayList implements SortableList {
     }
 
     @Override
-    public int first(){
+    public int first() {
         return storedData[0];
     }
 
     @Override
-    public SortableList createNew(){
+    public SortableList createNew() {
         return new ArrayList();
+    }
+
+    @Override
+    public boolean swapIfGreaterThanNext(int i) {
+        if (i >= size - 1) return false;
+        if (storedData[i] > storedData[i + 1]) {
+            swap(i, i + 1);
+            return true;
+        }
+        return false;
     }
 }

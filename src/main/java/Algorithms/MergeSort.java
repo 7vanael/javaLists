@@ -16,21 +16,27 @@ public class MergeSort {
 
     static void combineLists(SortableList list, SortableList a, SortableList b) {
         int i = 0;
-        while (a.size() > 0 && b.size() > 0) {
-            if (a.first() < b.first() ) {
-                mergeNext(list, i, a);
+        int ai = 0;
+        int bi = 0;
+        while (a.size() > ai && b.size() > bi) {
+            if (a.get(ai) < b.get(bi) ) {
+                mergeNext(list, i, a, ai);
+                ai++;
             } else {
-                mergeNext(list, i, b);
+                mergeNext(list, i, b, bi);
+                bi++;
             }
             i++;
         }
 
-        while(b.size() > 0){
-            mergeNext(list, i, b);
+        while(b.size() > bi){
+            mergeNext(list, i, b, bi);
+            bi++;
             i++;
         }
-        while(a.size() > 0){
-            mergeNext(list, i, a);
+        while(a.size() > ai){
+            mergeNext(list, i, a, ai);
+            ai++;
             i++;
         }
     }
@@ -44,9 +50,8 @@ public class MergeSort {
         }
     }
 
-    static void mergeNext(SortableList list, int i, SortableList sub) {
-        list.set(i, sub.first());
-        sub.remove(0);
+    static void mergeNext(SortableList list, int i, SortableList sub, int subi) {
+        list.set(i, sub.get(subi));
     }
 
 
