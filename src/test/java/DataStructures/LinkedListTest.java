@@ -141,13 +141,6 @@ public class LinkedListTest {
     }
 
     @Test
-    @DisplayName("First returns the value of the first entry")
-    public void firstReturnsFirstValue() {
-        newList.add(7);
-        assertEquals(7, newList.first());
-    }
-
-    @Test
     @DisplayName("CreateNew returns an empty LinkedList")
     public void createNewReturnsEmptyLinkedList() {
         SortableList created = newList.createNew();

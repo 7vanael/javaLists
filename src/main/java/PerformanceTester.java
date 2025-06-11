@@ -48,13 +48,10 @@ public class PerformanceTester {
     }
 
     private void bubbleSortPerformance() {
-        ArrayList array;
-        LinkedList linked;
+        ArrayList array= new ArrayList();
+        LinkedList linked= new LinkedList();
 
         populateTenThousandRandom(tenThousand, random);
-
-        array = new ArrayList();
-        linked = new LinkedList();
 
         for (int i = 0; i < SIZE_OF_SORTED_DATA_SET; i++) {
             array.add(tenThousand[i]);
@@ -66,7 +63,7 @@ public class PerformanceTester {
         endTime = System.nanoTime();
         duration = endTime - startTime;
 
-        System.out.println("BubbleSorting DataStructures.ArrayList:");
+        System.out.println("BubbleSorting ArrayList:");
         System.out.println("Time: " + (duration / 1000000.0) + " milliseconds");
         System.out.println("Final size: " + array.size() + "\n");
 
@@ -75,20 +72,17 @@ public class PerformanceTester {
         endTime = System.nanoTime();
         duration = endTime - startTime;
 
-        System.out.println("BubbleSorting DataStructures.LinkedList:");
+        System.out.println("BubbleSorting LinkedList:");
         System.out.println("Time: " + (duration / 1000000.0) + " milliseconds");
         System.out.println("Final size: " + linked.size() + "\n");
 
     }
 
     private void mergeSortPerformance() {
-        ArrayList array;
-        LinkedList linked;
+        ArrayList array= new ArrayList();
+        LinkedList linked= new LinkedList();
 
         populateTenThousandRandom(tenThousand, random);
-
-        array = new ArrayList();
-        linked = new LinkedList();
 
         for (int i = 0; i < SIZE_OF_SORTED_DATA_SET; i++) {
             array.add(tenThousand[i]);
@@ -100,7 +94,7 @@ public class PerformanceTester {
         endTime = System.nanoTime();
         duration = endTime - startTime;
 
-        System.out.println("MergeSorting DataStructures.ArrayList:");
+        System.out.println("MergeSorting ArrayList:");
         System.out.println("Time: " + (duration / 1000000.0) + " milliseconds");
         System.out.println("Final size: " + array.size() + "\n");
 
@@ -109,19 +103,16 @@ public class PerformanceTester {
         endTime = System.nanoTime();
         duration = endTime - startTime;
 
-        System.out.println("MergeSorting DataStructures.LinkedList:");
+        System.out.println("MergeSorting LinkedList:");
         System.out.println("Time: " + (duration / 1000000.0) + " milliseconds");
         System.out.println("Final size: " + linked.size() + "\n");
     }
 
     private void quickSortPerformance() {
-        ArrayList array;
-        LinkedList linked;
+        ArrayList array= new ArrayList();
+        LinkedList linked= new LinkedList();
 
         populateTenThousandRandom(tenThousand, random);
-
-        array = new ArrayList();
-        linked = new LinkedList();
 
         for (int i = 0; i < SIZE_OF_SORTED_DATA_SET; i++) {
             array.add(tenThousand[i]);
@@ -133,7 +124,7 @@ public class PerformanceTester {
         endTime = System.nanoTime();
         duration = endTime - startTime;
 
-        System.out.println("QuickSorting DataStructures.ArrayList:");
+        System.out.println("QuickSorting ArrayList:");
         System.out.println("Time: " + (duration / 1000000.0) + " milliseconds");
         System.out.println("Final size: " + array.size() + "\n");
 
@@ -142,7 +133,7 @@ public class PerformanceTester {
         endTime = System.nanoTime();
         duration = endTime - startTime;
 
-        System.out.println("QuickSorting DataStructures.LinkedList:");
+        System.out.println("QuickSorting LinkedList:");
         System.out.println("Time: " + (duration / 1000000.0) + " milliseconds");
         System.out.println("Final size: " + linked.size() + "\n");
     }

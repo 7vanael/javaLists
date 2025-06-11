@@ -96,11 +96,6 @@ public class LinkedList implements SortableList {
     }
 
     @Override
-    public int first() {
-        return first.value;
-    }
-
-    @Override
     public SortableList createNew() {
         return new LinkedList();
     }

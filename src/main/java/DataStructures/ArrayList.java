@@ -92,11 +92,6 @@ public class ArrayList implements SortableList {
     }
 
     @Override
-    public int first() {
-        return storedData[0];
-    }
-
-    @Override
     public SortableList createNew() {
         return new ArrayList();
     }

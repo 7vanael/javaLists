@@ -135,13 +135,6 @@ public class ArrayListTest {
     }
 
     @Test
-    @DisplayName("First returns the value of the first entry")
-    public void firstReturnsFirstValue() {
-        newList.add(7);
-        assertEquals(7, newList.first());
-    }
-
-    @Test
     @DisplayName("CreateNew returns an empty ArrayList")
     public void createNewReturnsEmptyArrayList() {
         SortableList created = newList.createNew();
