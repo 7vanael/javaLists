@@ -8,17 +8,17 @@ import java.util.Random;
 
 public class PerformanceTester {
 
-    private final int SIZE_OF_SORTED_DATA_SET = 10000;
-    private final int SIZE_OF_ADDED_DATA_SET = 1000;
+    private static final int SIZE_OF_SORTED_DATA_SET = 10000;
+    private static final int SIZE_OF_ADDED_DATA_SET = 1000;
 
-    private Random random = new Random();
-    private int[] tenThousand = new int[SIZE_OF_SORTED_DATA_SET];
+    private static Random random = new Random();
+    private static int[] tenThousand = new int[SIZE_OF_SORTED_DATA_SET];
 
-    private long startTime;
-    private long endTime;
-    private long duration;
+    private static long startTime;
+    private static long endTime;
+    private static long duration;
 
-    public void runPerformanceTest(){
+    public static void runPerformanceTest(){
         System.out.println("ArrayList Performance Testing");
         System.out.println("=============================\n");
 
@@ -47,7 +47,7 @@ public class PerformanceTester {
         bubbleSortPerformance();
     }
 
-    private void bubbleSortPerformance() {
+    private static void bubbleSortPerformance() {
         ArrayList array= new ArrayList();
         LinkedList linked= new LinkedList();
 
@@ -78,7 +78,7 @@ public class PerformanceTester {
 
     }
 
-    private void mergeSortPerformance() {
+    private static void mergeSortPerformance() {
         ArrayList array= new ArrayList();
         LinkedList linked= new LinkedList();
 
@@ -108,7 +108,7 @@ public class PerformanceTester {
         System.out.println("Final size: " + linked.size() + "\n");
     }
 
-    private void quickSortPerformance() {
+    private static void quickSortPerformance() {
         ArrayList array= new ArrayList();
         LinkedList linked= new LinkedList();
 
@@ -138,13 +138,13 @@ public class PerformanceTester {
         System.out.println("Final size: " + linked.size() + "\n");
     }
 
-    private void populateTenThousandRandom(int[] tenThousand, Random random) {
+    private static void populateTenThousandRandom(int[] tenThousand, Random random) {
         for (int i = 0; i < SIZE_OF_SORTED_DATA_SET; i++) {
             tenThousand[i] = random.nextInt();
         }
     }
 
-    public void addToFrontArrayList() {
+    public static void addToFrontArrayList() {
         ArrayList array = new ArrayList();
         startTime = System.nanoTime();
 
@@ -157,7 +157,7 @@ public class PerformanceTester {
         System.out.println("Final size: " + array.size() + "\n");
     }
 
-    public void addToEndArrayList() {
+    public static void addToEndArrayList() {
         ArrayList array = new ArrayList();
         startTime = System.nanoTime();
 
@@ -170,7 +170,7 @@ public class PerformanceTester {
         System.out.println("Final size: " + array.size() + "\n");
     }
 
-    public void addToMiddleArrayList() {
+    public static void addToMiddleArrayList() {
         ArrayList array = new ArrayList();
         startTime = System.nanoTime();
 
@@ -186,7 +186,7 @@ public class PerformanceTester {
         System.out.println("Final size: " + array.size() + "\n");
     }
 
-    public void addToFrontLinkedList() {
+    public static void addToFrontLinkedList() {
         LinkedList linked = new LinkedList();
         startTime = System.nanoTime();
 
@@ -201,7 +201,7 @@ public class PerformanceTester {
         System.out.println("Final size: " + linked.size() + "\n");
     }
 
-    public void addToEndLinkedList() {
+    public static void addToEndLinkedList() {
         LinkedList linked = new LinkedList();
         startTime = System.nanoTime();
 
@@ -216,7 +216,7 @@ public class PerformanceTester {
         System.out.println("Final size: " + linked.size() + "\n");
     }
 
-    public void addToMiddleLinkedList() {
+    public static void addToMiddleLinkedList() {
         LinkedList linked = new LinkedList();
         startTime = System.nanoTime();
 
